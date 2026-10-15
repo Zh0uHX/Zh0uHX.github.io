@@ -7,17 +7,13 @@ redirect_from:
   - /about.html
 ---
 
-你好，我是 Zhou Haoxiang（Rick Zhou）。我关注大语言模型的训练系统、强化学习后训练、多模态模型和 Coding Agent 工程。
+我是 Zhou Haoxiang，也可以叫我 Rick。
 
-做项目时，我习惯把实验协议、原始数据和局限写清楚：每个数字都能追溯到对应的代码版本和原始结果，结论不超出实验能支撑的范围。
+目前主要在做大模型训练相关的工程。在 nanochat 上从头训过一个 1.68B 的模型，之后大部分时间花在 SFT 数据打包和断点续训上。另外用 Qwen3-VL 做过开放词汇目标检测，写了一个改代码仓库的 Agent 并拿 SWE-bench Lite 的真实 issue 测它，还给 [verl](https://github.com/verl-project/verl) 提了一个修 GSM8k 奖励函数的 PR。
 
-## 方向
-- **LLM 训练系统**：分布式 SFT packing、精确断点续训、checkpoint 兼容与可复现 benchmark
-- **RL 后训练**：基于 [verl](https://github.com/verl-project/verl) 的奖励函数与评测
-- **多模态模型**：用 Qwen3-VL 做生成式开放词汇目标检测
-- **Agent 工程**：可靠的工具调用协议，以及基于真实 issue 的定量评测
+下面项目里的数字都附了原始结果，只跑过一次的实验我会直接写明。
 
-## 精选项目
+## 项目
 
 ### [Repo Maintainer Agent](https://github.com/Zh0uHX/repo-maintainer-agent)
 面向本地代码仓库的 Coding Agent，采用显式的 plan–act–observe 循环，所有操作限制在仓库内，命令走白名单。在从 SWE-bench Lite 分层抽取的 44 个真实 issue 上（每个条件 3 次，配对 bootstrap）：
