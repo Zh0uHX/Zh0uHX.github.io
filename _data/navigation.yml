@@ -7,6 +7,3 @@
 main:
   - title: "项目"
     url: /portfolio/
-
-  - title: "开源贡献"
-    url: /#contributions

@@ -9,7 +9,7 @@ redirect_from:
 
 我是 Zhou Haoxiang，也可以叫我 Rick。
 
-目前主要在做大模型训练相关的工程。在 nanochat 上从头训过一个 1.68B 的模型，之后大部分时间花在 SFT 数据打包和断点续训上。另外用 Qwen3-VL 做过开放词汇目标检测，写了一个改代码仓库的 Agent 并拿 SWE-bench Lite 的真实 issue 测它，还给 [verl](https://github.com/verl-project/verl) 提了一个修 GSM8k 奖励函数的 PR。
+目前主要在做大模型训练相关的工程。在 nanochat 上从头训过一个 1.68B 的模型，之后大部分时间花在 SFT 数据打包和断点续训上。另外用 Qwen3-VL 做过开放词汇目标检测，还写了一个改代码仓库的 Agent，拿 SWE-bench Lite 的真实 issue 测它。
 
 下面项目里的数字都附了原始结果，只跑过一次的实验我会直接写明。
 
@@ -43,7 +43,3 @@ redirect_from:
 DSH 插件：在设置页里搜索、安装、更新和卸载 Skills.sh 技能，带路径边界校验和失败回滚。
 
 [详细介绍](/portfolio/dsh-skills/)
-
-## 开源贡献 {#contributions}
-- **[verl-project/verl#8231](https://github.com/verl-project/verl/pull/8231)**：修复 GSM8k 奖励函数的答案归一化（审阅中）。
-  原实现会把 `#### 72.`、`#### $300`、`1,000` 这类格式正确的答案判为 0 分。我用 Qwen2.5-0.5B/1.5B-Instruct 在全部 1,319 道测试题上采样验证：修复后 1.5B 的 flexible 奖励从 53.1% 升到 63.3%，原来得 1 分的回答没有一个变成 0 分。
