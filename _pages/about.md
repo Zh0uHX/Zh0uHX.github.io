@@ -1,56 +1,53 @@
 ---
 permalink: /
-title: "Academic Pages is a ready-to-fork GitHub Pages template for academic personal websites"
+title: "关于我"
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 ---
 
-This is the front page of a website that is powered by the [Academic Pages template](https://github.com/academicpages/academicpages.github.io) and hosted on GitHub pages. [GitHub pages](https://pages.github.com) is a free service in which websites are built and hosted from code and data stored in a GitHub repository, automatically updating when a new commit is made to the repository. This template was forked from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/) created by Michael Rose, and then extended to support the kinds of content that academics have: publications, talks, teaching, a portfolio, blog posts, and a dynamically-generated CV. Incidentally, these same features make it a great template for anyone that needs to show off a professional template!
+你好，我是 Zhou Haoxiang（Rick Zhou）。我关注大语言模型的训练系统、强化学习后训练、多模态模型和 Coding Agent 工程。
 
- You can fork [this template](https://github.com/academicpages/academicpages.github.io) right now, modify the configuration and Markdown files, add your own PDFs and other content, and have your own site for free, with no ads!
+做项目时，我习惯把实验协议、原始数据和局限写清楚：每个数字都能追溯到对应的代码版本和原始结果，结论不超出实验能支撑的范围。
 
-A data-driven personal website
-======
-Like many other Jekyll-based GitHub Pages templates, Academic Pages makes you separate the website's content from its form. The content & metadata of your website are in structured Markdown files, while various other files constitute the theme, specifying how to transform that content & metadata into HTML pages. You keep these various Markdown (.md), YAML (.yml), HTML, and CSS files in a public GitHub repository. Each time you commit and push an update to the repository, the [GitHub pages](https://pages.github.com/) service creates static HTML pages based on these files, which are hosted on GitHub's servers free of charge.
+## 方向
+- **LLM 训练系统**：分布式 SFT packing、精确断点续训、checkpoint 兼容与可复现 benchmark
+- **RL 后训练**：基于 [verl](https://github.com/verl-project/verl) 的奖励函数与评测
+- **多模态模型**：用 Qwen3-VL 做生成式开放词汇目标检测
+- **Agent 工程**：可靠的工具调用协议，以及基于真实 issue 的定量评测
 
-Many of the features of dynamic content management systems (like Wordpress) can be achieved in this fashion, using a fraction of the computational resources and with far less vulnerability to hacking and DDoSing. You can also modify the theme to your heart's content without touching the content of your site. If you get to a point where you've broken something in Jekyll/HTML/CSS beyond repair, your Markdown files describing your talks, publications, etc. are safe. You can rollback the changes or even delete the repository and start over - just be sure to save the Markdown files! You can also write scripts that process the structured data on the site, such as [this one](https://github.com/academicpages/academicpages.github.io/blob/master/talkmap.ipynb) that analyzes metadata in pages about talks to display [a map of every location you've given a talk](https://academicpages.github.io/talkmap.html).
+## 精选项目
 
-For those users that need more advanced functionality, the template also supports the following popular tools:
-- [MathJax](https://www.mathjax.org/) for mathematical equations
-- [Mermaid](https://mermaid.js.org/) for diagraming
-- [Plotly](https://plotly.com/javascript/) for plotting
+### [Repo Maintainer Agent](https://github.com/Zh0uHX/repo-maintainer-agent)
+面向本地代码仓库的 Coding Agent，采用显式的 plan–act–observe 循环，所有操作限制在仓库内，命令走白名单。在从 SWE-bench Lite 分层抽取的 44 个真实 issue 上（每个条件 3 次，配对 bootstrap）：
 
-Getting started
-======
-1. Register a GitHub account if you don't have one and confirm your e-mail (required!)
-1. Fork [this template](https://github.com/academicpages/academicpages.github.io) by clicking the "Use this template" button in the top right. 
-1. Go to the repository's settings (rightmost item in the tabs that start with "Code", should be below "Unwatch"). Rename the repository "[your GitHub username].github.io", which will also be your website's URL.
-1. Set site-wide configuration and create content & metadata (see below -- also see [this set of diffs](https://archive.is/3TPas) showing what files were changed to set up [an example site](https://getorg-testacct.github.io) for a user with the username "getorg-testacct")
-1. Upload any files (like PDFs, .zip files, etc.) to the files/ directory. They will appear at https://[your GitHub username].github.io/files/example.pdf.  
-1. Check status by going to the repository settings, in the "GitHub pages" section
+- JSON 协议换成原生 tool calling 后，动作阶段需要修复的模型调用从 7.63% 降到 0.06%
+- 函数级定位 recall@1 从 48.8% 提高到 57.9%（+9.1 pp）
 
-Site-wide configuration
-------
-The main configuration file for the site is in the base directory in [_config.yml](https://github.com/academicpages/academicpages.github.io/blob/master/_config.yml), which defines the content in the sidebars and other site-wide features. You will need to replace the default variables with ones about yourself and your site's github repository. The configuration file for the top menu is in [_data/navigation.yml](https://github.com/academicpages/academicpages.github.io/blob/master/_data/navigation.yml). For example, if you don't have a portfolio or blog posts, you can remove those items from that navigation.yml file to remove them from the header. 
+[详细介绍](/portfolio/repo-maintainer-agent/)
 
-Create content & metadata
-------
-For site content, there is one Markdown file for each type of content, which are stored in directories like _publications, _talks, _posts, _teaching, or _pages. For example, each talk is a Markdown file in the [_talks directory](https://github.com/academicpages/academicpages.github.io/tree/master/_talks). At the top of each Markdown file is structured data in YAML about the talk, which the theme will parse to do lots of cool stuff. The same structured data about a talk is used to generate the list of talks on the [Talks page](https://academicpages.github.io/talks), each [individual page](https://academicpages.github.io/talks/2012-03-01-talk-1) for specific talks, the talks section for the [CV page](https://academicpages.github.io/cv), and the [map of places you've given a talk](https://academicpages.github.io/talkmap.html) (if you run this [python file](https://github.com/academicpages/academicpages.github.io/blob/master/talkmap.py) or [Jupyter notebook](https://github.com/academicpages/academicpages.github.io/blob/master/talkmap.ipynb), which creates the HTML for the map based on the contents of the _talks directory).
+### [Nanochat：LLM 训练系统](https://github.com/Zh0uHX/Nanochat)
+基于 karpathy/nanochat 的训练系统项目，聚焦确定性的分布式 SFT packing、精确中断恢复、checkpoint 兼容和可复现 benchmark。
 
-**Markdown generator**
+- 在 8×A100 上完成 1.68B 参数模型预训练（7.8B tokens，MFU 45.86%）
+- Best-fit packing 把 padding 比例从 14.97% 降到 0.19%；在固定算力预算下多处理 29% 的有效 token
 
-The repository includes [a set of Jupyter notebooks](https://github.com/academicpages/academicpages.github.io/tree/master/markdown_generator
-) that converts a CSV containing structured data about talks or presentations into individual Markdown files that will be properly formatted for the Academic Pages template. The sample CSVs in that directory are the ones I used to create my own personal website at stuartgeiger.com. My usual workflow is that I keep a spreadsheet of my publications and talks, then run the code in these notebooks to generate the Markdown files, then commit and push them to the GitHub repository.
+[详细介绍](/portfolio/nanochat/)
 
-How to edit your site's GitHub repository
-------
-Many people use a git client to create files on their local computer and then push them to GitHub's servers. If you are not familiar with git, you can directly edit these configuration and Markdown files directly in the github.com interface. Navigate to a file (like [this one](https://github.com/academicpages/academicpages.github.io/blob/master/_talks/2012-03-01-talk-1.md) and click the pencil icon in the top right of the content preview (to the right of the "Raw | Blame | History" buttons). You can delete a file by clicking the trashcan icon to the right of the pencil icon. You can also create new files or upload files by navigating to a directory and clicking the "Create new file" or "Upload files" buttons. 
+### [Qwen3-VL 生成式开放词汇目标检测](https://github.com/Zh0uHX/qwen3-vl-ovd)
+输入图片和类别列表，用 Qwen3-VL + LoRA 自回归生成类别和边界框，坐标用 1000 个离散 token 表示。
 
-Example: editing a Markdown file for a talk
-![Editing a Markdown file for a talk](/images/editing-talk.png)
+- 100 张验证图上，F1@0.5 从 zero-shot 的 0.321 提升到 0.578，格式有效率从 0% 提高到 81%
+- 独立 500 张终评：F1@0.5 0.576，Precision 0.738
 
-For more info
-------
-More info about configuring Academic Pages can be found in [the guide](https://academicpages.github.io/markdown/), the [growing wiki](https://github.com/academicpages/academicpages.github.io/wiki), and you can always [ask a question on GitHub](https://github.com/academicpages/academicpages.github.io/discussions). The [guides for the Minimal Mistakes theme](https://mmistakes.github.io/minimal-mistakes/docs/configuration/) (which this theme was forked from) might also be helpful.
+[详细介绍](/portfolio/qwen3-vl-ovd/)
+
+### [DSH Skills](https://github.com/Zh0uHX/dsh-skills)
+DSH 插件：在设置页里搜索、安装、更新和卸载 Skills.sh 技能，带路径边界校验和失败回滚。
+
+[详细介绍](/portfolio/dsh-skills/)
+
+## 开源贡献 {#contributions}
+- **[verl-project/verl#8231](https://github.com/verl-project/verl/pull/8231)**：修复 GSM8k 奖励函数的答案归一化（审阅中）。
+  原实现会把 `#### 72.`、`#### $300`、`1,000` 这类格式正确的答案判为 0 分。我用 Qwen2.5-0.5B/1.5B-Instruct 在全部 1,319 道测试题上采样验证：修复后 1.5B 的 flexible 奖励从 53.1% 升到 63.3%，原来得 1 分的回答没有一个变成 0 分。
